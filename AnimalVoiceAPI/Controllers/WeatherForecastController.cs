@@ -25,8 +25,6 @@ namespace AnimalVoiceAPI.Controllers
 
             try
             {
-                throw new Exception("This is out logging test exception");
-
                 return Enumerable.Range(1, 5).Select(index => new WeatherForecast
                 {
                     Date = DateOnly.FromDateTime(DateTime.Now.AddDays(index)),
