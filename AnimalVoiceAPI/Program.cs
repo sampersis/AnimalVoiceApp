@@ -1,3 +1,4 @@
+using AnimalAPI.Configurations;
 using AnimalAPI.Database;
 using Microsoft.EntityFrameworkCore;
 using Serilog;
@@ -8,6 +9,8 @@ var builder = WebApplication.CreateBuilder(args);
 
 var animalsdbConnStr = builder.Configuration.GetConnectionString("AnimalsdbConnection");
 builder.Services.AddDbContext<AnimalsdbContext>(options => options.UseSqlServer(animalsdbConnStr));
+
+builder.Services.AddAutoMapper(typeof(MapperConfig));
 
 builder.Services.AddControllers();
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
